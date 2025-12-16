@@ -1,0 +1,46 @@
+[phases.setup]
+nixPkgs = [
+  "php82",
+  "php82Extensions.curl",
+  "php82Extensions.mbstring",
+  "php82Extensions.tokenizer",
+  "php82Extensions.xml",
+  "php82Extensions.fileinfo",
+  "php82Extensions.pdo_mysql",
+  "php82Extensions.bcmath",
+  "php82Extensions.gd",
+  "nginx",
+  "nodejs_18"           
+]
+
+[phases.install]
+cmds = [
+  # Instala o Composer manualmente
+  "curl -sS https://getcomposer.org/installer | php",
+  "mv composer.phar /usr/local/bin/composer",
+  # Usa caminho absoluto do Composer
+  "php /usr/local/bin/composer install --no-interaction --prefer-dist",
+  "chmod -R 775 storage bootstrap/cache",
+  "chown -R www-data:www-data storage bootstrap/cache",
+  "npm install",
+  "npm run build",
+  "cp .env.example .env",
+  "php artisan key:generate"
+]
+
+[phases.build]
+cmds = [
+  "php artisan config:clear",
+  "php artisan route:clear",
+  "php artisan view:clear",
+  "php artisan storage:link || true"
+]
+
+[start]
+cmd = "php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=80"
+
+[env]
+APP_ENV = "production"
+APP_DEBUG = "false"
+APP_URL = "https://laravel.zaptend.online"
+PORT = "80"

@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ================================
+   🎨 Paleta Zaptend (cores extras)
+   ================================ */
+:root {
+  --zaptend-link: #128C7E;          /* link normal */
+  --zaptend-link-hover: #25D366;    /* ao passar o mouse */
+  --zaptend-link-active: #25D366;   /* item ativo */
+  --zaptend-sidebar-bg: #f5f6f6;    /* fundo do menu, se quiser */
+}
+
+/* ================================
+   🧭 MENU LATERAL
+   ================================ */
+.filament-sidebar {
+  background-color: var(--zaptend-sidebar-bg) !important;
+}
+
+/* Links e textos do menu */
+.filament-sidebar a,
+.filament-sidebar li,
+.filament-sidebar .fi-sidebar-item,
+.filament-sidebar .fi-sidebar-group-item {
+  color: var(--zaptend-link) !important;
+}
+
+/* Hover / foco */
+.filament-sidebar a:hover,
+.filament-sidebar .fi-sidebar-item:hover {
+  color: var(--zaptend-link-hover) !important;
+}
+
+/* Item ativo */
+.filament-sidebar a[aria-current="page"],
+.filament-sidebar .fi-sidebar-item.is-active {
+  color: var(--zaptend-link-active) !important;
+  font-weight: 600 !important;
+}
+
+/* ================================
+   🔗 LINKS EM PÁGINAS / CONTEÚDO
+   ================================ */
+.filament-main a,
+.filament-page a,
+.filament-content a {
+  color: var(--zaptend-link) !important;
+}
+
+.filament-main a:hover,
+.filament-page a:hover {
+  color: var(--zaptend-link-hover) !important;
+}
+
+/* ================================
+   🧩 Ícones acompanham cor
+   ================================ */
+.filament-sidebar svg {
+  color: inherit !important;
+  fill: currentColor !important;
+}

@@ -1,0 +1,16 @@
+{
+    "name": "ZapTend",
+    "short_name": "ZapTend",
+    "background_color": "#6777ef",
+    "display": "fullscreen",
+    "description": "O seu assistente de agendamento online.",
+    "theme_color": "#6777ef",
+    "start_url": "/",
+    "icons": [
+        {
+            "src": "zaptend-logo.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
